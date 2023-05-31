@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 60px;
+}
+
+:host(.margin-bottom) {
+  margin-bottom: 1rem;
+}

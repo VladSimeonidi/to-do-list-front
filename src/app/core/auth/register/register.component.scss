@@ -1,0 +1,22 @@
+.register {
+  &--container {
+    max-width: 25rem;
+    margin: auto auto;
+    padding: 1.875rem;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+
+  &--form {
+    display: flex;
+    flex-direction: column;
+  }
+  &--link {
+    margin-top: 1rem;
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}

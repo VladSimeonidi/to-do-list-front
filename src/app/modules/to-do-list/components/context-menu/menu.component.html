@@ -1,0 +1,10 @@
+<button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{todo}" mat-icon-button aria-label="icon button with a vertical three dot icon">
+  <mat-icon>more_vert</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+  <ng-template matMenuContent let-todo="todo">
+    <button (click)="deleteTodo(todo)" mat-menu-item>Delete</button>
+    <button (click)="openEditDialog(todo)" mat-menu-item>Edit</button>
+  </ng-template>
+</mat-menu>

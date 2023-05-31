@@ -1,0 +1,17 @@
+$margin-gap: 1.5rem;
+$margin-gap-negative: -1.5rem;
+
+.droplist {
+  &--wrapper {
+    display: flex;
+    margin: 0 $margin-gap-negative;
+  }
+
+  &--container {
+    flex: 1;
+    margin: 0 $margin-gap;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+  }
+}

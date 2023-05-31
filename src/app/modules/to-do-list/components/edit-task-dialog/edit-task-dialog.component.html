@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Edit Task Test</h1>
+<form [formGroup]="form" mat-dialog-content (keyup.enter)="edit()" (keyup.escape)="close()">
+  <p>Type title and description</p>
+  <mat-form-field class="width-100" appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title">
+    <mat-error>
+      Title is required
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="width-100" appearance="fill">
+    <mat-label>Description</mat-label>
+    <input matInput formControlName="description">
+    <mat-error>
+      Description is required
+    </mat-error>
+  </mat-form-field>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Priority</mat-label>
+      <mat-select formControlName="priority">
+        <mat-option *ngFor="let priority of prioritiesList" [value]="priority.value">
+          {{priority.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-checkbox formControlName="isCompleted" class="checkbox-margi-left">Complete</mat-checkbox>
+  </div>
+</form>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">No</button>
+  <button (click)="edit()" [disabled]="form.invalid" class="margin-s-auto" mat-button color="primary">edit</button>
+</div>

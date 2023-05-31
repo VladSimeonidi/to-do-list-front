@@ -1,0 +1,15 @@
+<ng-container *ngIf="data$ | async as data">
+
+  <ng-container *ngIf="data.loaded">
+
+    <app-add-task-bar class="margin-bottom"></app-add-task-bar>
+
+    <mat-spinner class="spinner" *ngIf="data.loading"></mat-spinner>
+
+    <app-droplist-group></app-droplist-group>
+
+  </ng-container>
+
+  <mat-spinner class="spinner" *ngIf="!data.loaded"></mat-spinner>
+
+</ng-container>

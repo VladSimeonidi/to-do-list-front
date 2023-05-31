@@ -1,0 +1,6 @@
+<ng-container *ngIf="todosGroupedByIsCompleted$ | async as todosGroupedByIsCompleted">
+  <div cdkDropListGroup class="droplist--wrapper">
+    <app-draglist class="droplist--container" [todos]="todosGroupedByIsCompleted.todo" title="To Do"></app-draglist>
+    <app-draglist class="droplist--container" [todos]="todosGroupedByIsCompleted.done" title="Done"></app-draglist>
+  </div>
+</ng-container>

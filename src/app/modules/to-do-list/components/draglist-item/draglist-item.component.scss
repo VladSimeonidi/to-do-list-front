@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.flex-v-h-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

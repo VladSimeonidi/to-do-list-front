@@ -1,0 +1,10 @@
+<div>
+  <div>{{todo.title}}</div>
+  <div>{{todo.description}}</div>
+</div>
+<div>
+  <div>Priority</div>
+  {{todo.priority | valueToKeys}}
+</div>
+
+<app-context-menu [todo]="todo"></app-context-menu>
