@@ -2,9 +2,9 @@ import {
   createReducer,
   MetaReducer, on,
 } from "@ngrx/store";
-import {environment} from "../../../../../environments/environment";
-import {AuthActions} from "../action.types";
-import {UserModel} from "../../model/user.model";
+import { environment } from "../../../../../environments/environment";
+import { AuthActions } from "../action.types";
+import { UserModel } from "../../model/user.model";
 
 export const authFeatureKey = "auth";
 
@@ -38,21 +38,21 @@ export const authReducer = createReducer(
     return {
       user: action.user,
       loaded: true,
-      loading: false
+      loading: false,
     };
   }),
   on(AuthActions.loginError, (state, action) => {
     return {
       user: undefined,
       loaded: false,
-      loading: false
+      loading: false,
     };
   }),
   on(AuthActions.logout, (state, action) => {
     return {
       user: undefined,
       loaded: false,
-      loading: false
+      loading: false,
     };
   }),
   on(AuthActions.invokeRegister, (state, action) => {
@@ -66,14 +66,14 @@ export const authReducer = createReducer(
     return {
       user: undefined,
       loaded: true,
-      loading: false
+      loading: false,
     };
   }),
   on(AuthActions.registerError, (state, action) => {
     return {
       user: undefined,
       loaded: false,
-      loading: false
+      loading: false,
     };
   }),
 );

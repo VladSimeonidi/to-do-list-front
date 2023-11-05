@@ -1,9 +1,9 @@
-import {createAction, props} from "@ngrx/store";
-import {authHttpResponse, loginFormRequestData, registerFormRequestData} from "../model/user.model";
+import { createAction, props } from "@ngrx/store";
+import { authHttpResponse, loginFormRequestData, registerFormRequestData } from "../model/user.model";
 
 export const invokelogin = createAction(
   "[Login Page] User Invoke Login",
-  props<{ payload: loginFormRequestData }>()
+  props<{ payload: loginFormRequestData }>(),
 );
 export const loginSuccess = createAction(
   "[Login Page] User Login Success",
@@ -20,7 +20,7 @@ export const logout = createAction(
 
 export const invokeRegister = createAction(
   "[Register Page] User Invoke Register",
-  props<{payload: registerFormRequestData}>()
+  props<{ payload: registerFormRequestData }>(),
 );
 
 export const registerError = createAction(

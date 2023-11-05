@@ -1,41 +1,43 @@
-import {Injectable} from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
   EntityCollectionServiceBase,
   EntityCollectionServiceElementsFactory,
-} from "@ngrx/data";
-import {Todo, todosGroupedByIsCompleted} from "../models/todo";
-import {combineLatest, from, groupBy, map, mergeMap, Observable, reduce, toArray} from "rxjs";
+} from '@ngrx/data';
+import { Todo, todosGroupedByIsCompleted } from '../models/todo';
+import { combineLatest, from, groupBy, map, mergeMap, Observable, reduce, toArray } from 'rxjs';
 
 @Injectable()
 export class ToDoEntityService extends EntityCollectionServiceBase<Todo> {
   constructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {
-    super("Todo", serviceElementsFactory);
+    super('Todo', serviceElementsFactory);
   }
+
+  private mapTodosGroupedByIsCompleted = (arr: Todo[][]): todosGroupedByIsCompleted => {
+    const [todo, done] = this.mapArrays(arr);
+    return {
+      todo,
+      done,
+    };
+  };
+
+  private reduceTodosIsCompleted = (acc: Todo[], cur: Todo) => {
+    acc.push(cur);
+    return acc;
+  };
 
   public todosGroupedByIsCompleted$: Observable<todosGroupedByIsCompleted> = this.entities$
     .pipe(
       mergeMap(
-        (todos) => from(todos)
-          .pipe(
-            groupBy(todo => todo.isCompleted),
-            mergeMap(group => group
+        (todos: Todo[]) => from(todos)
+          .pipe(groupBy(todo => todo.isCompleted), mergeMap(group => group
               .pipe(
-                reduce((acc: Todo[], cur) => {
-                    acc.push(cur);
-                    return acc;
-                  },
+                reduce((acc: Todo[], cur: Todo) => this.reduceTodosIsCompleted(acc, cur),
                   []
                 )
               )
             ),
             toArray(),
-            map((arr: Todo[][]): todosGroupedByIsCompleted => {
-              const [todo, done] = this.mapArrays(arr);
-              return {
-                todo,
-                done,
-              }
-            })
+            map((arr: Todo[][]): todosGroupedByIsCompleted => this.mapTodosGroupedByIsCompleted(arr))
           ),
       )
     );
@@ -51,22 +53,22 @@ export class ToDoEntityService extends EntityCollectionServiceBase<Todo> {
         loaded,
         loading,
       }))
-    )
+    );
 
   private mapArrays(arr: Todo[][]): Todo[][] {
 
     if (arr.length === 0) return [[], []];
 
     if (arr.length < 2 && arr[0].every((currentValue: Todo) => currentValue.isCompleted)) {
-      arr.unshift([])
+      arr.unshift([]);
       return arr;
     }
 
     if (arr.length < 2 && arr[0].every((currentValue: Todo) => currentValue.isCompleted)) {
-      arr.push([])
+      arr.push([]);
       return arr;
     }
-    return arr.sort(this.compareFn)
+    return arr.sort(this.compareFn);
   }
 
   private compareFn(arr1: Todo[], arr2: Todo[]): number {

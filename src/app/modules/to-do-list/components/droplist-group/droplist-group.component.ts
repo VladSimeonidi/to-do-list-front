@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from "@angular/core";
-import {ToDoEntityService} from "../../store/to-do-entity.service";
+import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from "@angular/core";
+import { ToDoEntityService } from "../../store/to-do-entity.service";
 
 @Component({
   selector: "app-droplist-group",
@@ -10,8 +10,10 @@ import {ToDoEntityService} from "../../store/to-do-entity.service";
 export class DroplistGroupComponent implements OnInit {
 
   public todosGroupedByIsCompleted$ = this.todoEntityService.todosGroupedByIsCompleted$;
+
   constructor(private todoEntityService: ToDoEntityService) {
   }
+
   ngOnInit(): void {
   }
 }

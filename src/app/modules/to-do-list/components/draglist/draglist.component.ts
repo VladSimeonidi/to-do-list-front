@@ -1,7 +1,8 @@
-import {ChangeDetectionStrategy, Component, HostBinding, Input, OnInit} from '@angular/core';
-import {Todo} from "../../models/todo";
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
-import {ToDoEntityService} from "../../store/to-do-entity.service";
+import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit } from '@angular/core';
+import { Todo } from "../../models/todo";
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from "@angular/cdk/drag-drop";
+import { ToDoEntityService } from "../../store/to-do-entity.service";
+
 @Component({
   selector: 'app-draglist',
   templateUrl: './draglist.component.html',
@@ -18,14 +19,14 @@ export class DraglistComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  drop(event$: CdkDragDrop<Todo[], any>) {
+  drop(event$: CdkDragDrop<Todo[], any>): void {
     if (event$.previousContainer === event$.container) {
       moveItemInArray(event$.container.data, event$.previousIndex, event$.currentIndex);
     } else {
       const currentItem: Todo = event$.previousContainer.data[event$.previousIndex];
       this.todoEntityService.update({
         ...currentItem,
-        isCompleted: !currentItem.isCompleted
+        isCompleted: !currentItem.isCompleted,
       } as Todo);
 
       transferArrayItem(

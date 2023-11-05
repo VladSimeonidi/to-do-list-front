@@ -1,7 +1,5 @@
-import {ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges} from "@angular/core";
-import {Todo} from "../../models/todo";
-import {priority} from "../../../../config/enums/priority.enum";
-import {animate, style, transition, trigger} from "@angular/animations";
+import { ChangeDetectionStrategy, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
+import { Todo } from "../../models/todo";
 
 @Component({
   selector: "app-draglist-item",
@@ -12,17 +10,18 @@ import {animate, style, transition, trigger} from "@angular/animations";
 export class DraglistItemComponent implements OnInit, OnChanges {
   @Input() todo!: Todo;
 
-  constructor() {
+  constructor(private elementRef: ElementRef) {
   }
 
   ngOnInit(): void {
+    console.log(this.elementRef);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.checkRequiredFields(this.todo)
+    this.checkRequiredFields(this.todo);
   }
 
-  public checkRequiredFields(input: Todo) {
+  public checkRequiredFields(input: Todo): void {
     if (!input) {
       throw new Error("Attribute 'a' is required");
     }

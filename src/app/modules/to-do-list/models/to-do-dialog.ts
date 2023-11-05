@@ -1,10 +1,12 @@
-import {FormGroup} from "@angular/forms";
-import {Todo} from "./todo";
+import { FormGroup } from "@angular/forms";
+import { Todo } from "./todo";
 
 export abstract class ToDoDialog {
-  abstract prioritiesList: { value: number, viewValue: string }[];
-  abstract form: FormGroup;
+  public prioritiesList!: { value: number, viewValue: string }[];
+  public form!: FormGroup;
+
   abstract close(): void;
+
   abstract getData(): Todo;
 }
 

@@ -19,5 +19,5 @@ export function buildUrl(routerService: Router, id: string | number): string {
 }
 
 export function buildUrlWithParams(routerService: Router, queryParams: QueryParams): string {
-  return routerService.createUrlTree([API.toDoList, "paginated"], {queryParams}).toString();
+  return routerService.createUrlTree([API.toDoList], {queryParams}).toString();
 }

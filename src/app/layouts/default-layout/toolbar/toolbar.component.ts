@@ -1,13 +1,13 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {UserModel} from "../../../core/auth/model/user.model";
-import {Store} from "@ngrx/store";
-import {AppState} from "../../../store";
-import {logout} from "../../../core/auth/store/auth.actions";
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { UserModel } from "../../../core/auth/model/user.model";
+import { Store } from "@ngrx/store";
+import { AppState } from "../../../store";
+import { logout } from "../../../core/auth/store/auth.actions";
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.scss']
+  styleUrls: ['./toolbar.component.scss'],
 })
 export class ToolbarComponent implements OnInit {
   @Output() public toggleEmitter: EventEmitter<null> = new EventEmitter();
@@ -33,7 +33,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   public logout(): void {
-    this.store.dispatch(logout())
+    this.store.dispatch(logout());
   }
 
 }

@@ -30,6 +30,7 @@ import { DraglistComponent } from './components/draglist/draglist.component';
 import { TaskBoardComponent } from './pages/task-board/task-board.component';
 import {TasksStoreModule} from "../../shared/tasks-store/tasks-store.module";
 import {compareTodos} from "./utils";
+import { SortTodosComponent } from './components/sort-todos/sort-todos.component';
 
 const EntityMetaData: EntityMetadataMap = {
   Todo: {
@@ -55,6 +56,7 @@ const EntityMetaData: EntityMetadataMap = {
     ObjectValueToKeysPipePipe,
     DraglistComponent,
     TaskBoardComponent,
+    SortTodosComponent,
   ],
   imports: [
     CommonModule,

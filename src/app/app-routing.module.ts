@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { DefaultLayoutComponent } from "./layouts/default-layout/default-layout.component";
-import { NotFoundComponent } from "./shared/not-found/not-found.component";
 import { AuthGuard } from "./core/auth/services/auth.guard";
 import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
 import routesConstants from "./config/constants/routes.constants";
@@ -30,13 +29,13 @@ const routes: Routes = [
   },
   {
     path: "**",
-    component: NotFoundComponent,
-  }
+    loadChildren: () => import("./shared/not-found/not-found.module").then(m => m.NotFoundModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {
 }

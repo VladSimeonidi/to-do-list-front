@@ -1,9 +1,9 @@
-import {Injectable} from "@angular/core";
-import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
-import {Observable, throwError} from "rxjs";
-import {catchError} from "rxjs/operators";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {Router} from "@angular/router";
+import { Injectable } from "@angular/core";
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
+import { Observable, throwError } from "rxjs";
+import { catchError } from "rxjs/operators";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { Router } from "@angular/router";
 
 @Injectable()
 export class HttpErrorInterceptorService implements HttpInterceptor {
@@ -29,7 +29,7 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
           if (error.status < 500) this.openSnackBar(error.error, "Ok");
 
           return throwError(() => error);
-        })
+        }),
       );
   }
 }

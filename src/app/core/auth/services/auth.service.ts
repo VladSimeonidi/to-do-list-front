@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import {authHttpResponse, loginFormRequestData, registerFormRequestData, UserModel} from "../model/user.model";
+import { authHttpResponse, loginFormRequestData, registerFormRequestData, UserModel } from "../model/user.model";
 import * as API from "../../../config/constants/api.constants";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class AuthService {
   constructor(private http: HttpClient) {

@@ -1,8 +1,8 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from "@angular/core";
-import {Todo} from "../../models/todo";
-import {ToDoEntityService} from "../../store/to-do-entity.service";
-import {EditTaskDialogComponent} from "../edit-task-dialog/edit-task-dialog.component";
-import {MatDialog} from "@angular/material/dialog";
+import { ChangeDetectionStrategy, Component, Input, OnInit } from "@angular/core";
+import { Todo } from "../../models/todo";
+import { ToDoEntityService } from "../../store/to-do-entity.service";
+import { EditTaskDialogComponent } from "../edit-task-dialog/edit-task-dialog.component";
+import { MatDialog } from "@angular/material/dialog";
 
 @Component({
   selector: 'app-context-menu',

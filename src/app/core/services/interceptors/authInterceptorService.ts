@@ -6,7 +6,7 @@ import { Router } from "@angular/router";
 
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
-  constructor(private router: Router,) {
+  constructor(private router: Router) {
   }
 
   private getAuthToken(): string | null {
@@ -18,7 +18,7 @@ export class AuthInterceptorService implements HttpInterceptor {
 
     if (token) {
       request = request.clone(
-        { headers: request.headers.set('Authorization', token) }
+        {headers: request.headers.set('Authorization', token)},
       );
     }
 

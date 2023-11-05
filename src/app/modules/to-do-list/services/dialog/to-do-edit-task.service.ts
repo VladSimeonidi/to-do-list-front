@@ -23,10 +23,6 @@ export class ToDoEditTaskService extends ToDoDialogService implements ToDoDialog
   edit(): void {
     if (this.isFormValid()) {
       const formData = this.form.value;
-      console.log({
-        ...this.data,
-        ...formData
-      })
       this.todoEntityService.update({
         ...this.data,
         ...formData

@@ -16,21 +16,18 @@ export class ToDoHttpService {
   }
 
   private omitKeys(obj: any): { [k: string]: unknown; } {
-    const omitKeysArray = ['_id', 'createdAt', 'updatedAt', '__v'];
+    const omitKeysArray: string[] = ['_id', 'createdAt', 'updatedAt', '__v'];
     return Object.fromEntries(
       Object.entries(obj).filter(([key]) => !omitKeysArray.includes(key))
     );
   }
-
-
 
   public getAllTodos(): Observable<Todo[]> {
     return this.http.get<Todo[]>(API.toDoList).pipe(catchError((err) => []));
   }
 
   public getTodosWithQuery(queryParams: QueryParams): Observable<Todo[]> {
-    const url = buildUrlWithParams(this.router, queryParams);
-    console.log("url", url)
+    const url: string = buildUrlWithParams(this.router, queryParams);
     return this.http.get<Todo[]>(url).pipe(catchError((err) => []));
   }
 

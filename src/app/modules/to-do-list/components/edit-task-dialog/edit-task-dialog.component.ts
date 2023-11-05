@@ -10,12 +10,12 @@ import { ToDoEditTaskService } from "../../services/dialog/to-do-edit-task.servi
   providers: [{
     provide: ToDoDialogEditTask,
     useClass: ToDoEditTaskService,
-  }]
+  }],
 })
 export class EditTaskDialogComponent implements OnInit {
   public prioritiesList = this.editDialog.prioritiesList;
   public form = this.editDialog.form;
-  public data = this.editDialog.getData()
+  public data = this.editDialog.getData();
 
   constructor(private editDialog: ToDoDialogEditTask) {
   }
@@ -26,7 +26,7 @@ export class EditTaskDialogComponent implements OnInit {
       description: this.data.description,
       priority: this.data.priority,
       isCompleted: this.data.isCompleted,
-    })
+    });
 
   }
 
@@ -37,5 +37,4 @@ export class EditTaskDialogComponent implements OnInit {
   public close() {
     this.editDialog.close();
   }
-
 }

@@ -9,7 +9,7 @@ import { ToDoDialogAddTask } from "../../models/to-do-dialog";
   providers: [{
     provide: ToDoDialogAddTask,
     useClass: ToDoAddTaskService,
-  }]
+  }],
 })
 export class AddTaskDialogComponent implements OnInit {
   public prioritiesList = this.addDialog.prioritiesList;

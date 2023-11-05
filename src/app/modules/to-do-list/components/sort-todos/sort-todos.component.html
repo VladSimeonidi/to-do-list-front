@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-label>Sort by</mat-label>
+  <mat-select [(value)]="selected" (selectionChange)="sortTodos()">
+    <mat-option value="updatedAt">Updated</mat-option>
+    <mat-option value="title">Title</mat-option>
+    <mat-option value="priority">Priority</mat-option>
+  </mat-select>
+</mat-form-field>

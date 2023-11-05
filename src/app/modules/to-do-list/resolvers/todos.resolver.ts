@@ -16,7 +16,7 @@ export class TodosResolver implements Resolve<boolean> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return this.todoService.loaded$.pipe(tap(loaded => {
-        if (!loaded) this.todoService.getAll();
+        if (!loaded) this.todoService.getWithQuery("");
       }),
       first(),
       catchError(err => {

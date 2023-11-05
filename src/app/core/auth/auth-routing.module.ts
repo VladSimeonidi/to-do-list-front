@@ -8,23 +8,23 @@ const routes: Routes = [
   {
     path: "",
     redirectTo: routesConstants.auth.login,
-    pathMatch: "full"
+    pathMatch: "full",
   },
   {
-    path:  routesConstants.auth.login,
+    path: routesConstants.auth.login,
     component: LoginComponent,
-    pathMatch: "full"
+    pathMatch: "full",
   },
   {
     path: routesConstants.auth.register,
     component: RegisterComponent,
-    pathMatch: "full"
-  }
+    pathMatch: "full",
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AuthRoutingModule {
 }
